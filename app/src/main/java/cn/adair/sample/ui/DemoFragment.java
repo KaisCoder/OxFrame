@@ -19,6 +19,7 @@ import cn.adair.xframe.widget.NoScrollListView;
 
 
 public class DemoFragment extends BaseFragment implements AdapterView.OnItemClickListener {
+
     NoScrollListView listView;
     String[] demo;
 

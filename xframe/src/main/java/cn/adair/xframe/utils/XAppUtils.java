@@ -11,10 +11,11 @@ import android.net.Uri;
 
 import java.io.File;
 import java.security.MessageDigest;
-import java.util.Iterator;
 import java.util.List;
 
 import cn.adair.xframe.XFrame;
+
+import static android.content.pm.PackageManager.GET_SIGNATURES;
 
 /**
  * 应用工具类.
@@ -32,9 +33,7 @@ public class XAppUtils {
      */
     public static String readMetaDataFromApplication(String key) {
         try {
-            ApplicationInfo appInfo = context.getPackageManager()
-                    .getApplicationInfo(context.getPackageName(),
-                            PackageManager.GET_META_DATA);
+            ApplicationInfo appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
             return appInfo.metaData.getString(key);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -63,8 +62,7 @@ public class XAppUtils {
         List<PackageInfo> pkgList = manager.getInstalledPackages(0);
         for (int i = 0; i < pkgList.size(); i++) {
             PackageInfo info = pkgList.get(i);
-            if (info.packageName.equalsIgnoreCase(packageName))
-                return true;
+            if (info.packageName.equalsIgnoreCase(packageName)) return true;
         }
         return false;
     }
@@ -78,8 +76,7 @@ public class XAppUtils {
         Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.setAction(android.content.Intent.ACTION_VIEW);
-        intent.setDataAndType(Uri.fromFile(file),
-                "application/vnd.android.package-archive");
+        intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
         context.startActivity(intent);
     }
 
@@ -112,9 +109,7 @@ public class XAppUtils {
         List<ActivityManager.RunningTaskInfo> taskList = am.getRunningTasks(1);
         if (taskList != null && !taskList.isEmpty()) {
             ComponentName componentName = taskList.get(0).topActivity;
-            if (componentName != null && componentName.getPackageName().equals(context.getPackageName())) {
-                return true;
-            }
+            return componentName != null && componentName.getPackageName().equals(context.getPackageName());
         }
         return false;
     }
@@ -129,9 +124,7 @@ public class XAppUtils {
         boolean isRunning = false;
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningServiceInfo> servicesList = activityManager.getRunningServices(Integer.MAX_VALUE);
-        Iterator<ActivityManager.RunningServiceInfo> l = servicesList.iterator();
-        while (l.hasNext()) {
-            ActivityManager.RunningServiceInfo si = (ActivityManager.RunningServiceInfo) l.next();
+        for (ActivityManager.RunningServiceInfo si : servicesList) {
             if (className.equals(si.service.getClassName())) {
                 isRunning = true;
             }
@@ -164,7 +157,7 @@ public class XAppUtils {
      *
      * @return PackageInfo
      */
-    public static PackageInfo getPackageInfo() {
+    private static PackageInfo getPackageInfo() {
         PackageManager packageManager = context.getPackageManager();
         PackageInfo packageInfo = null;
         try {
@@ -203,9 +196,7 @@ public class XAppUtils {
      */
     public static String getSign(String pkgName) {
         try {
-            PackageInfo pis = context.getPackageManager()
-                    .getPackageInfo(pkgName,
-                            PackageManager.GET_SIGNATURES);
+            PackageInfo pis = context.getPackageManager().getPackageInfo(pkgName, GET_SIGNATURES);
             return hexDigest(pis.signatures[0].toByteArray());
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -244,10 +235,6 @@ public class XAppUtils {
 
     /**
      * 比较版本号的大小,前者大则返回一个正数,后者大返回一个负数,相等则返回0   支持4.1.2,4.1.23.4.1.rc111这种形式
-     *
-     * @param version1
-     * @param version2
-     * @return
      */
     public static int compareVersion(String version1, String version2) throws Exception {
         if (version1 == null || version2 == null) {

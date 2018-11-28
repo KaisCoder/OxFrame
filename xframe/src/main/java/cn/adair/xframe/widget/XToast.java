@@ -23,6 +23,7 @@ import cn.adair.xframe.utils.XOutdatedUtils;
  * 自定义Toast
  */
 public class XToast {
+
     private static final @ColorInt
     int DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF");
 
@@ -154,8 +155,7 @@ public class XToast {
         return custom(message, icon, DEFAULT_TEXT_COLOR, tintColor, duration);
     }
 
-    public static Toast custom(@NonNull String message, @DrawableRes int iconRes,
-                               @ColorInt int textColor, @ColorInt int tintColor, int duration) {
+    public static Toast custom(@NonNull String message, @DrawableRes int iconRes, @ColorInt int textColor, @ColorInt int tintColor, int duration) {
         return custom(message, XOutdatedUtils.getDrawable(iconRes), textColor, tintColor, duration);
     }
 
@@ -169,8 +169,7 @@ public class XToast {
      * @param duration  显示时长
      * @return
      */
-    public static Toast custom(@NonNull String message, Drawable icon,
-                               @ColorInt int textColor, @ColorInt int tintColor, int duration) {
+    public static Toast custom(@NonNull String message, Drawable icon, @ColorInt int textColor, @ColorInt int tintColor, int duration) {
         View toastLayout = LayoutInflater.from(context).inflate(R.layout.xtoast_view, null);
         ImageView toastIcon = (ImageView) toastLayout.findViewById(R.id.xtoast_icon);
         TextView toastText = (TextView) toastLayout.findViewById(R.id.xtoast_text);

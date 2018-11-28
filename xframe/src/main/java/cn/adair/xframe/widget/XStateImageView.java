@@ -21,6 +21,7 @@ import cn.adair.xframe.R;
  * app:animDuration="200"
  */
 public class XStateImageView extends AppCompatImageView {
+
     private Drawable mNormalDrawable;
 
     private Drawable mPressedDrawable;

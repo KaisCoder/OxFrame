@@ -1,6 +1,5 @@
 package cn.adair.xframe.widget;
 
-
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
@@ -10,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 
 public class XColorDrawable extends Drawable {
+
     private Paint mPaint;
     private int color;
     private RectF rectF;

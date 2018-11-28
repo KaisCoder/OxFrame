@@ -324,7 +324,6 @@ public class XBitmapUtils {
 
     /**
      * 合并
-     *
      * @param bgd 后景Bitmap
      * @param fg  前景Bitmap
      * @return 合成后Bitmap

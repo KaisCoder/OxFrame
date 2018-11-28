@@ -1,6 +1,5 @@
 package cn.adair.xframe.utils.http;
 
-
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -19,8 +18,7 @@ public class XHttp implements IHttpEngine {
 
     public static XHttp obtain() {
         if (httpEngine == null) {
-            throw new NullPointerException("Call XFrame.initXHttp(IHttpEngine httpEngine) within your Application onCreate() method." +
-                    "Or extends XApplication");
+            throw new NullPointerException("Call XFrame.initXHttp(IHttpEngine httpEngine) within your Application onCreate() method.Or extends XApplication");
         }
         if (xHttp == null) {
             xHttp = new XHttp();
@@ -30,9 +28,6 @@ public class XHttp implements IHttpEngine {
 
     /**
      * 获取实体类的类型
-     *
-     * @param obj
-     * @return
      */
     public static Class<?> analysisClassInfo(Object obj) {
         Type genType = obj.getClass().getGenericSuperclass();

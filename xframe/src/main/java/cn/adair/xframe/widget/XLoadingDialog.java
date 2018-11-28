@@ -17,6 +17,7 @@ import cn.adair.xframe.utils.XOutdatedUtils;
  * 加载等待提示框
  */
 public class XLoadingDialog extends Dialog {
+
     public static final int HORIZONTAL = 0;
     public static final int VERTICAL = 1;
     private static XLoadingDialog dialog;
@@ -65,8 +66,9 @@ public class XLoadingDialog extends Dialog {
     @Override
     public void dismiss() {
         super.dismiss();
-        if (dialog != null)
+        if (dialog != null) {
             dialog = null;
+        }
     }
 
     public XLoadingDialog setCanceled(boolean cancel) {

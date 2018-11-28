@@ -22,6 +22,7 @@ import cn.adair.xframe.widget.loadingview.XLoadingView;
 import cn.adair.xframe.widget.loadingview.XLoadingViewConfig;
 
 public class XFrame {
+
     private static Context context;
     public static int screenHeight;
     public static int screenWidth;

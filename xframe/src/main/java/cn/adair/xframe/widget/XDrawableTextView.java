@@ -19,6 +19,7 @@ import cn.adair.xframe.R;
  * 解决TextView中Drawable不与文字居中的问题
  */
 public class XDrawableTextView extends AppCompatTextView {
+
     private Drawable[] drawables;
     private int[] widths;
     private int[] heights;
@@ -80,9 +81,7 @@ public class XDrawableTextView extends AppCompatTextView {
     }
 
     public void setDrawables(Drawable[] drawables, int[] widths, int[] heights) {
-        if (drawables != null && drawables.length >= 4
-                && widths != null && widths.length >= 4
-                && heights != null && heights.length >= 4) {
+        if (drawables != null && drawables.length >= 4 && widths != null && widths.length >= 4 && heights != null && heights.length >= 4) {
             this.drawables = drawables;
             this.widths = widths;
             this.heights = heights;
@@ -106,25 +105,16 @@ public class XDrawableTextView extends AppCompatTextView {
         if (drawables[0] != null) {
             int left = (int) (centerX - drawablePadding - halfTextWidth - widths[0]);
             int top = (int) (centerY - heights[0] / 2);
-            drawables[0].setBounds(
-                    left,
-                    top,
-                    left + widths[0],
-                    top + heights[0]);
+            drawables[0].setBounds(left, top, left + widths[0], top + heights[0]);
             canvas.save();
             drawables[0].draw(canvas);
             canvas.restore();
         }
 
-
         if (drawables[2] != null) {
             int left = (int) (centerX + halfTextWidth + drawablePadding);
             int top = (int) (centerY - heights[2] / 2);
-            drawables[2].setBounds(
-                    left,
-                    top,
-                    left + widths[2],
-                    top + heights[2]);
+            drawables[2].setBounds(left, top, left + widths[2], top + heights[2]);
             canvas.save();
             drawables[2].draw(canvas);
             canvas.restore();
@@ -133,11 +123,7 @@ public class XDrawableTextView extends AppCompatTextView {
         if (drawables[1] != null) {
             int left = (int) (centerX - widths[1] / 2);
             int bottom = (int) (centerY - halfTextHeight - drawablePadding);
-            drawables[1].setBounds(
-                    left,
-                    bottom - heights[1],
-                    left + widths[1],
-                    bottom);
+            drawables[1].setBounds(left, bottom - heights[1], left + widths[1], bottom);
             canvas.save();
             drawables[1].draw(canvas);
             canvas.restore();
@@ -147,11 +133,7 @@ public class XDrawableTextView extends AppCompatTextView {
         if (drawables[3] != null) {
             int left = (int) (centerX - widths[3] / 2);
             int top = (int) (centerY + halfTextHeight + drawablePadding);
-            drawables[3].setBounds(
-                    left,
-                    top,
-                    left + widths[3],
-                    top + heights[3]);
+            drawables[3].setBounds(left, top, left + widths[3], top + heights[3]);
             canvas.save();
             drawables[3].draw(canvas);
             canvas.restore();
@@ -159,7 +141,6 @@ public class XDrawableTextView extends AppCompatTextView {
     }
 
     private void translateText(Canvas canvas, int drawablePadding) {
-
         int translateWidth = 0;
         if (drawables[0] != null && drawables[2] != null) {
             translateWidth = (widths[0] - widths[2]) / 2;
