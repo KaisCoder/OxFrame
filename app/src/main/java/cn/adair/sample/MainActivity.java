@@ -8,10 +8,15 @@ import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import cn.adair.iframe.IFrame;
+import cn.adair.iframe.client.XClientConfig;
+import cn.adair.iframe.client.XRequest;
 import cn.adair.iframe.utils.IPrinter;
 import cn.adair.sample.activity.AboutActivity;
 import cn.adair.sample.fragment.APIFragment;
@@ -47,8 +52,8 @@ public class MainActivity extends BaseActivity {
         tabLayout.setupWithViewPager(viewPager);
 
         IPrinter.e(IFrame.iPackageName());
-    }
 
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
