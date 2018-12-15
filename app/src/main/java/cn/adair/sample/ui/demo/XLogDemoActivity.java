@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cn.adair.sample.BaseActivity;
+import cn.adair.iframe.utils.IPrinter;
+import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
-import cn.adair.xframe.utils.log.XLog;
 
 public class XLogDemoActivity extends BaseActivity implements View.OnClickListener {
     String json = "{ \"data\": [ { \"time\": \"2016-04-26 00:21:26\", \"context\": \"到潍坊市【潍坊转运中心】\" }, { \"time\": \"2016-04-25 18:16:34\", \"context\": \"威海市【威海集散仓】，正发往【潍坊转运中心】\" }, { \"time\": \"2016-04-25 18:15:42\", \"context\": \"到威海市【威海集散仓】\" } ], \"phone\": \"400-956-5656\", \"url\": \"http://www.800bestex.com\", \"nu\": \"70186506140478\", \"company\": \"百世汇通\" }";
@@ -59,26 +59,26 @@ public class XLogDemoActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                XLog.v("xlog用法展示");
-                XLog.d("xlog用法展示");
-                XLog.e("xlog用法展示");
-                XLog.i("xlog用法展示");
-                XLog.w("xlog用法展示");
-                XLog.wtf("xlog用法展示");
+                IPrinter.v("xlog用法展示");
+                IPrinter.d("xlog用法展示");
+                IPrinter.e("xlog用法展示");
+                IPrinter.i("xlog用法展示");
+                IPrinter.w("xlog用法展示");
+                IPrinter.wtf("xlog用法展示");
                 break;
             case R.id.button2:
-                XLog.list(list);
+                IPrinter.list(list);
                 break;
             case R.id.button3:
-                XLog.map(map);
+                IPrinter.map(map);
                 break;
             case R.id.button4:
-                XLog.json(json);
+                IPrinter.json(json);
                 break;
             case R.id.button5:
-                XLog.xml(xml);
+                IPrinter.xml(xml);
                 break;
         }
-        textView.setText(XLog.getFormatLog());
+        textView.setText(IPrinter.format());
     }
 }

@@ -1,13 +1,9 @@
-package cn.adair.xframe.utils.log;
+package cn.adair.iframe.utils.printer;
 
 import java.util.List;
 import java.util.Map;
 
-public interface Printer {
-
-    XLogConfig init();
-
-    String getFormatLog();
+public interface PrinterBiz {
 
     void d(String message, Object... args);
 
@@ -30,4 +26,7 @@ public interface Printer {
     void map(Map map);
 
     void list(List list);
+
+    String format();
+
 }

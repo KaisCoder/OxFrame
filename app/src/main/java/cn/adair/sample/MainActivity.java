@@ -1,4 +1,4 @@
-package cn.adair.sample.ui;
+package cn.adair.sample;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,20 +11,29 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.adair.sample.BaseActivity;
-import cn.adair.sample.R;
+import cn.adair.iframe.IFrame;
+import cn.adair.iframe.utils.IPrinter;
+import cn.adair.sample.activity.AboutActivity;
+import cn.adair.sample.fragment.APIFragment;
+import cn.adair.sample.fragment.DemoFragment;
 import cn.adair.sample.ui.adapter.MyFragmentPagerAdapter;
 
-
 public class MainActivity extends BaseActivity {
+
     private List<Fragment> fragments;
     private String[] titles = new String[]{"Demo", "API"};
     TabLayout tabLayout;
     ViewPager viewPager;
 
     @Override
-    public int getLayoutId() {
+    public int initLayout() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    public void initView() {
+        tabLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
     }
 
     @Override
@@ -32,18 +41,14 @@ public class MainActivity extends BaseActivity {
         fragments = new ArrayList<>();
         fragments.add(new DemoFragment());
         fragments.add(new APIFragment());
-
-    }
-
-    @Override
-    public void initView() {
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
         tabLayout.addTab(tabLayout.newTab().setText(titles[0]));
         tabLayout.addTab(tabLayout.newTab().setText(titles[1]));
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragments, titles));
         tabLayout.setupWithViewPager(viewPager);
+
+        IPrinter.e(IFrame.iPackageName());
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -55,10 +60,10 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_about:
-                startActivity(new Intent(this, AboutActivity.class)
-                        .putExtra("title", "关于XFrame"));
+                startActivity(new Intent(this, AboutActivity.class).putExtra("title", "关于XFrame"));
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

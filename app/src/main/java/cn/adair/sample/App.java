@@ -1,6 +1,7 @@
 package cn.adair.sample;
 
 import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
+import cn.adair.iframe.IFrame;
 import cn.adair.sample.http.AsyncHttpEngine;
 import cn.adair.sample.loder.GlideImageLoader;
 import cn.adair.xframe.XFrame;
@@ -12,8 +13,6 @@ public class App extends XApplication {
         super.onCreate();
         CustomActivityOnCrash.install(this);
 
-        //初始化日志
-        XFrame.initXLog();
         //初始化多状态界面View
         XFrame.initXLoadingView().setErrorViewResId(R.layout._loading_layout_error);
 
@@ -29,5 +28,11 @@ public class App extends XApplication {
          * GlideImageLoader为你的图片加载框架实现类
          */
         XFrame.initXImageLoader(new GlideImageLoader(getApplicationContext()));
+
+        /**
+         * 更名后
+         */
+        IFrame.init(this);
+
     }
 }

@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import cn.adair.sample.BaseActivity;
+import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 import cn.adair.xframe.utils.XOutdatedUtils;
 import cn.adair.xframe.widget.XToast;

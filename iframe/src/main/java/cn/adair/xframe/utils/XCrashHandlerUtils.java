@@ -17,6 +17,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
+import cn.adair.iframe.utils.IPrinter;
 import cn.adair.xframe.common.XActivityStack;
 
 /**
@@ -137,16 +138,16 @@ public class XCrashHandlerUtils implements Thread.UncaughtExceptionHandler {
                 infos.put("versionCode", versionCode);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            XPrintUtils.e("an adapter_loading_error occured when collect package info --> " + e);
+            IPrinter.e("an adapter_loading_error occured when collect package info --> " + e);
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
             try {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
-                XPrintUtils.d(field.getName() + " : " + field.get(null));
+                IPrinter.d(field.getName() + " : " + field.get(null));
             } catch (Exception e) {
-                XPrintUtils.e("an adapter_loading_error occured when collect crash info --> " + e);
+                IPrinter.e("an adapter_loading_error occured when collect crash info --> " + e);
             }
         }
     }
@@ -182,7 +183,7 @@ public class XCrashHandlerUtils implements Thread.UncaughtExceptionHandler {
             String fileName = "crash-" + XDateUtils.getCurrentDate() + "-" + timestamp + ".XPrintUtils";
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 String path = Environment.getExternalStorageDirectory().getPath() + "/crash/";
-                XPrintUtils.d("path=" + path);
+                IPrinter.d("path=" + path);
                 File dir = new File(path);
                 if (!dir.exists()) {
                     dir.mkdirs();
@@ -193,7 +194,7 @@ public class XCrashHandlerUtils implements Thread.UncaughtExceptionHandler {
             }
             return fileName;
         } catch (Exception e) {
-            XPrintUtils.e("an adapter_loading_error occured while writing file... --> " + e);
+            IPrinter.e("an adapter_loading_error occured while writing file... --> " + e);
         }
         return null;
     }

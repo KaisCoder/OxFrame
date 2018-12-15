@@ -16,8 +16,6 @@ import cn.adair.xframe.utils.http.IHttpEngine;
 import cn.adair.xframe.utils.http.XHttp;
 import cn.adair.xframe.utils.imageload.ImageLoader;
 import cn.adair.xframe.utils.imageload.XImage;
-import cn.adair.xframe.utils.log.XLog;
-import cn.adair.xframe.utils.log.XLogConfig;
 import cn.adair.xframe.widget.loadingview.XLoadingView;
 import cn.adair.xframe.widget.loadingview.XLoadingViewConfig;
 
@@ -36,10 +34,6 @@ public class XFrame {
         XFrame.context = context;
         screenHeight = XDensityUtils.getScreenHeight();
         screenWidth = XDensityUtils.getScreenWidth();
-    }
-
-    public static XLogConfig initXLog() {
-        return XLog.init();
     }
 
     public static XLoadingViewConfig initXLoadingView() {

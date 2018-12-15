@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import java.util.List;
 import java.util.Random;
 
-import cn.adair.sample.BaseActivity;
+import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 import cn.adair.sample.bean.News;
 import cn.adair.sample.data.NewDataSource;

@@ -29,6 +29,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import cn.adair.iframe.utils.IPrinter;
+
 
 /**
  * Bitmap工具类主要包括获取Bitmap和对Bitmap的操作
@@ -248,7 +250,7 @@ public class XBitmapUtils {
         view.buildDrawingCache();
         Bitmap cacheBitmap = view.getDrawingCache();
         if (cacheBitmap == null) {
-            XPrintUtils.e("failed getViewBitmap(" + view + ") -->" + new RuntimeException());
+            IPrinter.e("failed getViewBitmap(" + view + ") -->" + new RuntimeException());
             return null;
         }
         Bitmap bitmap = Bitmap.createBitmap(cacheBitmap);
@@ -324,6 +326,7 @@ public class XBitmapUtils {
 
     /**
      * 合并
+     *
      * @param bgd 后景Bitmap
      * @param fg  前景Bitmap
      * @return 合成后Bitmap

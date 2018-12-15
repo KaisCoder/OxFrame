@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cn.adair.sample.BaseActivity;
+import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 import cn.adair.sample.bean.News;
 import cn.adair.xframe.cache.XCache;

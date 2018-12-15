@@ -1,29 +1,31 @@
-package cn.adair.sample.ui;
+package cn.adair.sample.fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import cn.adair.sample.BaseFragment;
+import cn.adair.iframe.base.IBaseFragment;
 import cn.adair.sample.R;
 
-public class APIFragment extends BaseFragment {
+public class APIFragment extends IBaseFragment {
+
     WebView webView;
 
     @Override
-    public int getLayoutId() {
+    public int initLayout() {
         return R.layout.api_fragment;
     }
 
     @Override
-    public void initData(Bundle savedInstanceState) {
-
+    public void initView() {
+        webView = _mView.findViewById(R.id.webview);
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
-    public void initView() {
-        webView = (WebView) getView().findViewById(R.id.webview);
+    public void initData(Bundle savedInstanceState) {
         webView.loadUrl("https://github.com/youth5201314/XFrame/wiki");
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);

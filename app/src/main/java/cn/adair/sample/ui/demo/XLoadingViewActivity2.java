@@ -5,7 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import cn.adair.sample.BaseActivity;
+import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 import cn.adair.xframe.widget.XToast;
 import cn.adair.xframe.widget.loadingview.XLoadingView;

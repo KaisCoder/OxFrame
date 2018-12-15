@@ -1,22 +1,17 @@
-package cn.adair.xframe.utils.log;
+package cn.adair.iframe.utils;
 
 import java.util.List;
 import java.util.Map;
 
-public final class XLog {
+import cn.adair.iframe.utils.printer.PrinterBiz;
+import cn.adair.iframe.utils.printer.PrinterImpl;
 
-    private static final Printer printer = new LoggerPrinter();
+public class IPrinter {
 
-    private XLog() {
+    private static final PrinterBiz printer = new PrinterImpl();
 
-    }
-
-    public static XLogConfig init() {
-        return printer.init();
-    }
-
-    public static String getFormatLog() {
-        return printer.getFormatLog();
+    public static String format() {
+        return printer.format();
     }
 
     public static void d(String message, Object... args) {
@@ -62,5 +57,4 @@ public final class XLog {
     public static void list(List list) {
         printer.list(list);
     }
-
 }
