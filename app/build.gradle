@@ -29,4 +29,7 @@ dependencies {
     implementation 'com.loopj.android:android-async-http:1.4.9'
 
     implementation 'com.alibaba:fastjson:1.2.49'
+
+    implementation "io.reactivex.rxjava2:rxjava:2.1.14"
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
 }

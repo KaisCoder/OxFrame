@@ -22,6 +22,10 @@ public class XRequest {
         return XClient._CreateService(xConfig)._Post(iUri, iParams).compose(new SchedulerUtils<JSONObject>().ioToMain());
     }
 
+    public static Observable<JSONObject> _Get(XClientConfig xConfig, String iUri, HashMap<String, Object> iParams) {
+        return XClient._CreateService(xConfig)._Get(iUri, iParams).compose(new SchedulerUtils<JSONObject>().ioToMain());
+    }
+
     public static Observable<JSONObject> _Upload(XClientConfig xConfig, String iUri, HashMap<String, Object> iParams, File iFile) {
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpg"), iFile);
         MultipartBody.Part iPart = MultipartBody.Part.createFormData("file", iFile.getName(), requestFile);

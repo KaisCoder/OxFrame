@@ -4,11 +4,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import cn.adair.sample.ui.BaseActivity;
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.HashMap;
+
+import cn.adair.iframe.client.XClientConfig;
+import cn.adair.iframe.client.XRequest;
+import cn.adair.iframe.utils.IPrinter;
 import cn.adair.sample.R;
 import cn.adair.sample.data.Weather;
+import cn.adair.sample.ui.BaseActivity;
+import cn.adair.sample.utils.InterceptorUtil;
+import cn.adair.sample.utils.JsonFactory;
 import cn.adair.xframe.utils.http.HttpCallBack;
 import cn.adair.xframe.utils.http.XHttp;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 public class XHttpActivity extends BaseActivity {
 
@@ -34,6 +45,23 @@ public class XHttpActivity extends BaseActivity {
     }
 
     public void request() {
+
+        XClientConfig config = XClientConfig.Instance();
+        config._SetBaseUrl("http://wthrcdn.etouch.cn");
+        config._SetLog(InterceptorUtil.CreateLog());
+        config._SetHeader(InterceptorUtil.CreateHeader());
+        config._SetFactory(JsonFactory.create());
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("citykey", "101010100");
+        new CompositeDisposable().add(XRequest._Get(config, "/weather_mini", map).subscribe(new Consumer<JSONObject>() {
+            @Override
+            public void accept(JSONObject jsonObject) throws Exception {
+                IPrinter.json(jsonObject.toString());
+            }
+        }));
+
+//       XRequest._Post(XClientConfig.Instance(), "", new HashMap<String, Object>()).subscribe(new io.reactivex.functions.Consumer<JSONObject>() {
+//       })
 
         //这里是公用接口，没有办法演示传参，谅解
         String url = "http://wthrcdn.etouch.cn/weather_mini?citykey=101010100";
