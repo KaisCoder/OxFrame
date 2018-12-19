@@ -1,4 +1,6 @@
-package cn.adair.iframe.client.iomain;
+package cn.adair.iframe.client.scheduler;
+
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * com.yidao.media.request.scheduler
@@ -9,6 +11,14 @@ public class SchedulerUtils<T> {
 
     public IoMainScheduler<T> ioToMain() {
         return new IoMainScheduler<T>();
+    }
+
+    class IoMainScheduler<T> extends BaseScheduler<T> {
+
+        IoMainScheduler() {
+            super(Schedulers.io(), AndroidSchedulers.mainThread());
+        }
+
     }
 
 }

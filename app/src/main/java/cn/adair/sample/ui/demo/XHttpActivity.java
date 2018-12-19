@@ -8,8 +8,8 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
 
-import cn.adair.iframe.client.XClientConfig;
-import cn.adair.iframe.client.XRequest;
+import cn.adair.iframe.client.IClientConfig;
+import cn.adair.iframe.client.IRequest;
 import cn.adair.iframe.utils.IPrinter;
 import cn.adair.sample.R;
 import cn.adair.sample.data.Weather;
@@ -46,14 +46,14 @@ public class XHttpActivity extends BaseActivity {
 
     public void request() {
 
-        XClientConfig config = XClientConfig.Instance();
+        IClientConfig config = IClientConfig.Instance();
         config._SetBaseUrl("http://wthrcdn.etouch.cn");
         config._SetLog(InterceptorUtil.CreateLog());
         config._SetHeader(InterceptorUtil.CreateHeader());
         config._SetFactory(JsonFactory.create());
         HashMap<String, Object> map = new HashMap<>();
         map.put("citykey", "101010100");
-        new CompositeDisposable().add(XRequest._Get(config, "/weather_mini", map).subscribe(new Consumer<JSONObject>() {
+        new CompositeDisposable().add(IRequest._Get("/weather_mini", map).subscribe(new Consumer<JSONObject>() {
             @Override
             public void accept(JSONObject jsonObject) throws Exception {
                 IPrinter.json(jsonObject.toString());

@@ -8,15 +8,15 @@ import retrofit2.Converter;
  * Created by Administrator on 2018/12/6/006.
  * slight negligence may lead to great disaster~
  */
-public class XClientConfig {
+public class IClientConfig {
 
-    private static XClientConfig instance = null;
+    private static IClientConfig instance = null;
 
-    public static XClientConfig Instance() {
+    public static IClientConfig Instance() {
         if (null == instance) {
-            synchronized (XClientConfig.class) {
+            synchronized (IClientConfig.class) {
                 if (null == instance) {
-                    instance = new XClientConfig();
+                    instance = new IClientConfig();
                 }
             }
         }

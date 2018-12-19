@@ -31,8 +31,8 @@ public class APIFragment extends IBaseFragment {
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     public void initData(Bundle savedInstanceState) {
-//        webView.loadUrl("https://github.com/youth5201314/XFrame/wiki");
-        webView.loadUrl("http://www.122fu.com/");
+        webView.loadUrl("https://github.com/youth5201314/XFrame/wiki");
+//        webView.loadUrl("http://www.122fu.com/");
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setUseWideViewPort(true);

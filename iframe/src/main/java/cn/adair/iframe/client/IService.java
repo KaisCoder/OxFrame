@@ -19,7 +19,7 @@ import retrofit2.http.Url;
  * Created by Administrator on 2018/5/25/025.
  * slight negligence may lead to great disaster~
  */
-public interface XService {
+public interface IService {
 
     /**
      * Post 请求使用@Url 注解
