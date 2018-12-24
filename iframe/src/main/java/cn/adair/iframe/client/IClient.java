@@ -19,13 +19,23 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 class IClient {
 
     static IService _CreateService() {
-        IClientConfig xConfig = IClientConfig.Instance();
+        IClientSet iSet = IClientSet.Instance();
         IClient.Builder builder = new IClient.Builder();
-        builder.addInterceptor(xConfig._XLog());
-        builder.addInterceptor(xConfig._XHeader());
+        builder.setBaseUrl(iSet.iClientHost());
+        builder.addInterceptor(iSet.iClientLog());
+        builder.addInterceptor(iSet.iClientHeader());
+        builder.addConverterFactory(iSet.iClientFactory());
         builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-        builder.addConverterFactory(xConfig._XFactory());
-        builder.setBaseUrl(xConfig._XBaseUrl());
+        return builder.builder().create(IService.class);
+    }
+
+    static IService _CreateService(IClientSet iSet) {
+        IClient.Builder builder = new IClient.Builder();
+        builder.setBaseUrl(iSet.iClientHost());
+        builder.addInterceptor(iSet.iClientLog());
+        builder.addInterceptor(iSet.iClientHeader());
+        builder.addConverterFactory(iSet.iClientFactory());
+        builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
         return builder.builder().create(IService.class);
     }
 
@@ -42,22 +52,19 @@ class IClient {
             iOkBuilder.connectTimeout(60L, TimeUnit.SECONDS);
         }
 
-        private Builder addInterceptor(Interceptor interceptor) {
+        private void addInterceptor(Interceptor interceptor) {
             Log.e("IClient", "addInterceptor");
             iOkBuilder.addInterceptor(interceptor);
-            return this;
         }
 
-        private Builder addCallAdapterFactory(CallAdapter.Factory factory) {
+        private void addCallAdapterFactory(CallAdapter.Factory factory) {
             Log.e("IClient", "addCallAdapterFactory");
             iRetrofitBuilder.addCallAdapterFactory(factory);
-            return this;
         }
 
-        private Builder addConverterFactory(Converter.Factory factory) {
+        private void addConverterFactory(Converter.Factory factory) {
             Log.e("IClient", "addConverterFactory");
             iRetrofitBuilder.addConverterFactory(factory);
-            return this;
         }
 
         private Builder setBaseUrl(String baseUrl) {

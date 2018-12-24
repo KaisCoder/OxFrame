@@ -18,15 +18,39 @@ import okhttp3.RequestBody;
  */
 public class IRequest {
 
-    public static Observable<JSONObject> _Post(IClientConfig xConfig, String iUri, HashMap<String, Object> iParams) {
+    private IService iService;
+    private static IRequest iInstance = null;
+
+    public static IRequest Instance() {
+        if (null == iInstance) {
+            synchronized (IRequest.class) {
+                if (null == iInstance) {
+                    iInstance = new IRequest();
+                }
+            }
+        }
+        return iInstance;
+    }
+
+    private IRequest() {
+        iService = IClient._CreateService();
+    }
+
+    public Observable<JSONObject> _Get(String iUri, HashMap<String, Object> iParams) {
+        return iService._Get(iUri, iParams).compose(new SchedulerUtils<JSONObject>().ioToMain());
+    }
+
+    public Observable<JSONObject> _Get(IClientSet iSet, String iUri, HashMap<String, Object> iParams) {
+        return IClient._CreateService(iSet)._Get(iUri, iParams).compose(new SchedulerUtils<JSONObject>().ioToMain());
+    }
+
+
+    public Observable<JSONObject> _Post(IClientSet xConfig, String iUri, HashMap<String, Object> iParams) {
         return IClient._CreateService()._Post(iUri, iParams).compose(new SchedulerUtils<JSONObject>().ioToMain());
     }
 
-    public static Observable<JSONObject> _Get(String iUri, HashMap<String, Object> iParams) {
-        return IClient._CreateService()._Get(iUri, iParams).compose(new SchedulerUtils<JSONObject>().ioToMain());
-    }
 
-    public static Observable<JSONObject> _Upload(IClientConfig xConfig, String iUri, HashMap<String, Object> iParams, File iFile) {
+    public Observable<JSONObject> _Upload(IClientSet xConfig, String iUri, HashMap<String, Object> iParams, File iFile) {
         RequestBody requestFile = RequestBody.create(MediaType.parse("image/jpg"), iFile);
         MultipartBody.Part iPart = MultipartBody.Part.createFormData("file", iFile.getName(), requestFile);
         return IClient._CreateService()._Upload(iUri, iParams, iPart).compose(new SchedulerUtils<JSONObject>().ioToMain());

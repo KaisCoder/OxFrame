@@ -8,7 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
 
-import cn.adair.iframe.client.IClientConfig;
+import cn.adair.iframe.client.IClientSet;
 import cn.adair.iframe.client.IRequest;
 import cn.adair.iframe.utils.IPrinter;
 import cn.adair.sample.R;
@@ -46,14 +46,14 @@ public class XHttpActivity extends BaseActivity {
 
     public void request() {
 
-        IClientConfig config = IClientConfig.Instance();
-        config._SetBaseUrl("http://wthrcdn.etouch.cn");
-        config._SetLog(InterceptorUtil.CreateLog());
-        config._SetHeader(InterceptorUtil.CreateHeader());
-        config._SetFactory(JsonFactory.create());
+        IClientSet config = IClientSet.Instance();
+        config.setClientHost("http://wthrcdn.etouch.cn");
+        config.setClientLog(InterceptorUtil.CreateLog());
+        config.setClientHeader(InterceptorUtil.CreateHeader());
+        config.setClientFactory(JsonFactory.create());
         HashMap<String, Object> map = new HashMap<>();
         map.put("citykey", "101010100");
-        new CompositeDisposable().add(IRequest._Get("/weather_mini", map).subscribe(new Consumer<JSONObject>() {
+        new CompositeDisposable().add(IRequest.Instance()._Get("/weather_mini", map).subscribe(new Consumer<JSONObject>() {
             @Override
             public void accept(JSONObject jsonObject) throws Exception {
                 IPrinter.json(jsonObject.toString());

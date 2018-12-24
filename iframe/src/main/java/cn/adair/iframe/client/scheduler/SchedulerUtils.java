@@ -13,7 +13,7 @@ public class SchedulerUtils<T> {
         return new IoMainScheduler<T>();
     }
 
-    class IoMainScheduler<T> extends BaseScheduler<T> {
+    class IoMainScheduler<I> extends BaseScheduler<I> {
 
         IoMainScheduler() {
             super(Schedulers.io(), AndroidSchedulers.mainThread());
