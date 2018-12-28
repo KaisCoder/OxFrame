@@ -11,10 +11,10 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import cn.adair.iframe.base.IBaseFragment;
+import cn.adair.frame.base.OxBaseFragment;
 import cn.adair.sample.R;
 
-public class APIFragment extends IBaseFragment {
+public class APIFragment extends OxBaseFragment {
 
     WebView webView;
 

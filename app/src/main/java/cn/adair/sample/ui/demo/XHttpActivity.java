@@ -8,9 +8,9 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
 
-import cn.adair.iframe.client.IClientSet;
-import cn.adair.iframe.client.IRequest;
-import cn.adair.iframe.utils.IPrinter;
+import cn.adair.frame.client.IClientSet;
+import cn.adair.frame.client.IRequest;
+import cn.adair.frame.utils.OxPrinter;
 import cn.adair.sample.R;
 import cn.adair.sample.data.Weather;
 import cn.adair.sample.ui.BaseActivity;
@@ -56,7 +56,7 @@ public class XHttpActivity extends BaseActivity {
         new CompositeDisposable().add(IRequest.Instance()._Get("/weather_mini", map).subscribe(new Consumer<JSONObject>() {
             @Override
             public void accept(JSONObject jsonObject) throws Exception {
-                IPrinter.json(jsonObject.toString());
+                OxPrinter.json(jsonObject.toString());
             }
         }));
 

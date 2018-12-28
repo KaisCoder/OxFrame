@@ -4,7 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.io.IOException;
 
-import cn.adair.iframe.utils.IPrinter;
+import cn.adair.frame.utils.OxPrinter;
 import okhttp3.ResponseBody;
 import okio.BufferedSource;
 import okio.Okio;
@@ -22,7 +22,7 @@ public class JsonResponseConverter implements Converter<ResponseBody, JSONObject
         BufferedSource bufferedSource = Okio.buffer(value.source());
         String result = bufferedSource.readUtf8();
         bufferedSource.close();
-        IPrinter.e("解密前：--->" + result);
+        OxPrinter.e("解密前：--->" + result);
         return JSONObject.parseObject(result);
     }
 }

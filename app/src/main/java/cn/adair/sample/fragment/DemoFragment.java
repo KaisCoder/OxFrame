@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 
-import cn.adair.iframe.base.IBaseFragment;
+import cn.adair.frame.base.OxBaseFragment;
 import cn.adair.sample.R;
 import cn.adair.sample.ui.demo.XCacheActivity;
 import cn.adair.sample.ui.demo.XHttpActivity;
@@ -17,7 +17,7 @@ import cn.adair.sample.ui.demo.XRecyclerViewAdapterActivity;
 import cn.adair.sample.ui.demo.XToastActivity;
 import cn.adair.xframe.widget.NoScrollListView;
 
-public class DemoFragment extends IBaseFragment {
+public class DemoFragment extends OxBaseFragment {
 
     NoScrollListView listView;
     String[] demo;

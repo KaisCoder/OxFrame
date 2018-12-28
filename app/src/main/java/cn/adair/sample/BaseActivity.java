@@ -2,10 +2,10 @@ package cn.adair.sample;
 
 import android.view.MenuItem;
 
-import cn.adair.iframe.base.IBaseActivity;
+import cn.adair.frame.base.OxBaseActivity;
 import cn.adair.xframe.utils.statusbar.XStatusBar;
 
-public abstract class BaseActivity extends IBaseActivity {
+public abstract class BaseActivity extends OxBaseActivity {
 
     @Override
     public void _SetStatusBar() {

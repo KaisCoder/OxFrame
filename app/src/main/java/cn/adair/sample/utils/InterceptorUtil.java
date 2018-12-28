@@ -1,6 +1,5 @@
 package cn.adair.sample.utils;
 
-import cn.adair.iframe.utils.IPrinter;
 import okhttp3.Interceptor;
 
 /**

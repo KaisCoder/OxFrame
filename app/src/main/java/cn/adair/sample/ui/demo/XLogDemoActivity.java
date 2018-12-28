@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import cn.adair.iframe.utils.IPrinter;
+import cn.adair.frame.utils.OxPrinter;
 import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 
@@ -59,26 +59,26 @@ public class XLogDemoActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                IPrinter.v("xlog用法展示");
-                IPrinter.d("xlog用法展示");
-                IPrinter.e("xlog用法展示");
-                IPrinter.i("xlog用法展示");
-                IPrinter.w("xlog用法展示");
-                IPrinter.wtf("xlog用法展示");
+                OxPrinter.v("xlog用法展示");
+                OxPrinter.d("xlog用法展示");
+                OxPrinter.e("xlog用法展示");
+                OxPrinter.i("xlog用法展示");
+                OxPrinter.w("xlog用法展示");
+                OxPrinter.wtf("xlog用法展示");
                 break;
             case R.id.button2:
-                IPrinter.list(list);
+                OxPrinter.list(list);
                 break;
             case R.id.button3:
-                IPrinter.map(map);
+                OxPrinter.map(map);
                 break;
             case R.id.button4:
-                IPrinter.json(json);
+                OxPrinter.json(json);
                 break;
             case R.id.button5:
-                IPrinter.xml(xml);
+                OxPrinter.xml(xml);
                 break;
         }
-        textView.setText(IPrinter.format());
+        textView.setText(OxPrinter.format());
     }
 }

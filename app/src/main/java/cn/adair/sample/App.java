@@ -1,7 +1,7 @@
 package cn.adair.sample;
 
 import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
-import cn.adair.iframe.IFrame;
+import cn.adair.frame.OxFrame;
 import cn.adair.sample.http.AsyncHttpEngine;
 import cn.adair.sample.loder.GlideImageLoader;
 import cn.adair.xframe.XFrame;
@@ -32,7 +32,7 @@ public class App extends XApplication {
         /**
          * 更名后
          */
-        IFrame.init(this);
+        OxFrame.init(this);
 
     }
 }

@@ -11,8 +11,8 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.adair.iframe.IFrame;
-import cn.adair.iframe.utils.IPrinter;
+import cn.adair.frame.OxFrame;
+import cn.adair.frame.utils.OxPrinter;
 import cn.adair.sample.activity.AboutActivity;
 import cn.adair.sample.fragment.APIFragment;
 import cn.adair.sample.fragment.DemoFragment;
@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragments, titles));
         tabLayout.setupWithViewPager(viewPager);
 
-        IPrinter.e(IFrame.iPackageName());
+        OxPrinter.e(OxFrame.iPackageName());
 
     }
 

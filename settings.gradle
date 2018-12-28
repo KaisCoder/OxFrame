@@ -1,1 +1,1 @@
-include ':iframe', ':app'
+include ':library', ':app'
