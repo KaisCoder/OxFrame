@@ -59,12 +59,10 @@ public class XLogDemoActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button:
-                OxPrinter.v("xlog用法展示");
-                OxPrinter.d("xlog用法展示");
-                OxPrinter.e("xlog用法展示");
-                OxPrinter.i("xlog用法展示");
-                OxPrinter.w("xlog用法展示");
-                OxPrinter.wtf("xlog用法展示");
+                OxPrinter.debug("xlog用法展示");
+                OxPrinter.error("xlog用法展示");
+                OxPrinter.info("xlog用法展示");
+                OxPrinter.warn("xlog用法展示");
                 break;
             case R.id.button2:
                 OxPrinter.list(list);

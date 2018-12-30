@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity {
         viewPager.setAdapter(new MyFragmentPagerAdapter(getSupportFragmentManager(), fragments, titles));
         tabLayout.setupWithViewPager(viewPager);
 
-        OxPrinter.e(OxFrame.iPackageName());
+        OxPrinter.error(OxFrame.iPackageName());
 
     }
 

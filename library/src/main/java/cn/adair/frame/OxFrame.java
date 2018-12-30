@@ -5,6 +5,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 
+import cn.adair.frame.utils.printer.PrinterSet;
+
 public class OxFrame {
 
     private static Context iCtx;
@@ -22,19 +24,12 @@ public class OxFrame {
         }
     }
 
-    public static Resources iRes() {
-        return OxFrame.iCtx().getResources();
+    public static void initPrinter(String tag, boolean isDebug, boolean isShowStack) {
+        PrinterSet.instance().setTAG(tag).isDebug(isDebug).isShowStack(isShowStack);
     }
 
-    public static PackageInfo iPackageInfo() {
-        PackageManager packageManager = OxFrame.iCtx.getPackageManager();
-        PackageInfo packageInfo = null;
-        try {
-            packageInfo = packageManager.getPackageInfo(iPackageName(), 0);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-        return packageInfo;
+    public static Resources iRes() {
+        return OxFrame.iCtx().getResources();
     }
 
     public static String iPackageName() {
@@ -47,6 +42,17 @@ public class OxFrame {
 
     public static int iVersionCode() {
         return iPackageInfo().versionCode;
+    }
+
+    public static PackageInfo iPackageInfo() {
+        PackageManager packageManager = OxFrame.iCtx.getPackageManager();
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = packageManager.getPackageInfo(iPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packageInfo;
     }
 
 }

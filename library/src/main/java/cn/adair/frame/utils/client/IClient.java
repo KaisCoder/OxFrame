@@ -1,4 +1,4 @@
-package cn.adair.frame.client;
+package cn.adair.frame.utils.client;
 
 import android.util.Log;
 
@@ -16,9 +16,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
  * Created by Administrator on 2018/12/6/006.
  * slight negligence may lead to great disaster~
  */
-class IClient {
+public class IClient {
 
-    static IService _CreateService() {
+    public static IService _CreateService() {
         IClientSet iSet = IClientSet.Instance();
         IClient.Builder builder = new IClient.Builder();
         builder.setBaseUrl(iSet.iClientHost());
@@ -29,7 +29,7 @@ class IClient {
         return builder.builder().create(IService.class);
     }
 
-    static IService _CreateService(IClientSet iSet) {
+    public static IService _CreateService(IClientSet iSet) {
         IClient.Builder builder = new IClient.Builder();
         builder.setBaseUrl(iSet.iClientHost());
         builder.addInterceptor(iSet.iClientLog());

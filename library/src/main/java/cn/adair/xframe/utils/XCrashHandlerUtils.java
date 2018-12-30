@@ -138,16 +138,16 @@ public class XCrashHandlerUtils implements Thread.UncaughtExceptionHandler {
                 infos.put("versionCode", versionCode);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            OxPrinter.e("an adapter_loading_error occured when collect package info --> " + e);
+            OxPrinter.error("an adapter_loading_error occured when collect package info --> " + e);
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
             try {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
-                OxPrinter.d(field.getName() + " : " + field.get(null));
+                OxPrinter.debug(field.getName() + " : " + field.get(null));
             } catch (Exception e) {
-                OxPrinter.e("an adapter_loading_error occured when collect crash info --> " + e);
+                OxPrinter.error("an adapter_loading_error occured when collect crash info --> " + e);
             }
         }
     }
@@ -183,7 +183,7 @@ public class XCrashHandlerUtils implements Thread.UncaughtExceptionHandler {
             String fileName = "crash-" + XDateUtils.getCurrentDate() + "-" + timestamp + ".XPrintUtils";
             if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
                 String path = Environment.getExternalStorageDirectory().getPath() + "/crash/";
-                OxPrinter.d("path=" + path);
+                OxPrinter.debug("path=" + path);
                 File dir = new File(path);
                 if (!dir.exists()) {
                     dir.mkdirs();
@@ -194,7 +194,7 @@ public class XCrashHandlerUtils implements Thread.UncaughtExceptionHandler {
             }
             return fileName;
         } catch (Exception e) {
-            OxPrinter.e("an adapter_loading_error occured while writing file... --> " + e);
+            OxPrinter.error("an adapter_loading_error occured while writing file... --> " + e);
         }
         return null;
     }

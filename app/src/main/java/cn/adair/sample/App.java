@@ -13,6 +13,11 @@ public class App extends XApplication {
         super.onCreate();
         CustomActivityOnCrash.install(this);
 
+        OxFrame.init(this);
+        OxFrame.initPrinter("OxRun", true, false);
+
+
+
         //初始化多状态界面View
         XFrame.initXLoadingView().setErrorViewResId(R.layout._loading_layout_error);
 

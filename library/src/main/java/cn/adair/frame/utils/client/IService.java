@@ -1,4 +1,4 @@
-package cn.adair.frame.client;
+package cn.adair.frame.utils.client;
 
 
 import com.alibaba.fastjson.JSONObject;

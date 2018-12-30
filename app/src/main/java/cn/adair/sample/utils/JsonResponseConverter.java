@@ -22,7 +22,7 @@ public class JsonResponseConverter implements Converter<ResponseBody, JSONObject
         BufferedSource bufferedSource = Okio.buffer(value.source());
         String result = bufferedSource.readUtf8();
         bufferedSource.close();
-        OxPrinter.e("解密前：--->" + result);
+        OxPrinter.error("解密前：--->" + result);
         return JSONObject.parseObject(result);
     }
 }

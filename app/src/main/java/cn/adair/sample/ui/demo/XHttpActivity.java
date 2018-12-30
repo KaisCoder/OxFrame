@@ -8,8 +8,8 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
 
-import cn.adair.frame.client.IClientSet;
-import cn.adair.frame.client.IRequest;
+import cn.adair.frame.utils.client.IClientSet;
+import cn.adair.frame.utils.OxClient;
 import cn.adair.frame.utils.OxPrinter;
 import cn.adair.sample.R;
 import cn.adair.sample.data.Weather;
@@ -53,7 +53,7 @@ public class XHttpActivity extends BaseActivity {
         config.setClientFactory(JsonFactory.create());
         HashMap<String, Object> map = new HashMap<>();
         map.put("citykey", "101010100");
-        new CompositeDisposable().add(IRequest.Instance()._Get("/weather_mini", map).subscribe(new Consumer<JSONObject>() {
+        new CompositeDisposable().add(OxClient._Get("/weather_mini", map).subscribe(new Consumer<JSONObject>() {
             @Override
             public void accept(JSONObject jsonObject) throws Exception {
                 OxPrinter.json(jsonObject.toString());

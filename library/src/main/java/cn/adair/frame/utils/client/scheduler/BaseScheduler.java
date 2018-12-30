@@ -1,4 +1,4 @@
-package cn.adair.frame.client.scheduler;
+package cn.adair.frame.utils.client.scheduler;
 
 import org.reactivestreams.Publisher;
 

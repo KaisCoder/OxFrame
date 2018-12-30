@@ -1,4 +1,4 @@
-package cn.adair.frame.client;
+package cn.adair.frame.utils.client;
 
 import okhttp3.Interceptor;
 import retrofit2.Converter;

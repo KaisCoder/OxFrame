@@ -250,7 +250,7 @@ public class XBitmapUtils {
         view.buildDrawingCache();
         Bitmap cacheBitmap = view.getDrawingCache();
         if (cacheBitmap == null) {
-            OxPrinter.e("failed getViewBitmap(" + view + ") -->" + new RuntimeException());
+            OxPrinter.error("failed getViewBitmap(" + view + ") -->" + new RuntimeException());
             return null;
         }
         Bitmap bitmap = Bitmap.createBitmap(cacheBitmap);

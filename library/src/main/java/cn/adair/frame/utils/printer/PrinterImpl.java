@@ -22,17 +22,17 @@ import javax.xml.transform.stream.StreamSource;
 public class PrinterImpl implements PrinterBiz {
 
     @Override
-    public void d(String message, Object... args) {
+    public void debug(String message, Object... args) {
         PrinterUtil.log(Log.DEBUG, message, args);
     }
 
     @Override
-    public void e(String message, Object... args) {
-        e(null, message, args);
+    public void error(String message, Object... args) {
+        error(null, message, args);
     }
 
     @Override
-    public void e(Throwable throwable, String message, Object... args) {
+    public void error(Throwable throwable, String message, Object... args) {
         if (throwable != null && message != null) {
             message += " : " + throwable.toString();
         }
@@ -46,29 +46,19 @@ public class PrinterImpl implements PrinterBiz {
     }
 
     @Override
-    public void w(String message, Object... args) {
+    public void warn(String message, Object... args) {
         PrinterUtil.log(Log.WARN, message, args);
     }
 
     @Override
-    public void i(String message, Object... args) {
+    public void info(String message, Object... args) {
         PrinterUtil.log(Log.INFO, message, args);
-    }
-
-    @Override
-    public void v(String message, Object... args) {
-        PrinterUtil.log(Log.VERBOSE, message, args);
-    }
-
-    @Override
-    public void wtf(String message, Object... args) {
-        PrinterUtil.log(Log.ASSERT, message, args);
     }
 
     @Override
     public void json(String json) {
         if (TextUtils.isEmpty(json)) {
-            d("json 数据为空！");
+            debug("json 数据为空！");
             return;
         }
         try {
@@ -80,16 +70,16 @@ public class PrinterImpl implements PrinterBiz {
                 JSONArray ja = new JSONArray(json);
                 message = ja.toString(4);
             }
-            d(message);
+            debug(message);
         } catch (Exception e) {
-            e(e.getCause().getMessage() + PrinterSet.LINE_SEPARATOR + json);
+            error(e.getCause().getMessage() + PrinterSet.LINE_SEPARATOR + json);
         }
     }
 
     @Override
     public void xml(String xml) {
         if (TextUtils.isEmpty(xml)) {
-            d("xml 数据为空！");
+            debug("xml 数据为空！");
             return;
         }
         try {
@@ -100,16 +90,16 @@ public class PrinterImpl implements PrinterBiz {
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
             transformer.transform(xmlInput, xmlOutput);
             String message = xmlOutput.getWriter().toString().replaceFirst(">", ">" + PrinterSet.LINE_SEPARATOR);
-            d(message);
+            debug(message);
         } catch (TransformerException e) {
-            e(e.getCause().getMessage() + PrinterSet.LINE_SEPARATOR + xml);
+            error(e.getCause().getMessage() + PrinterSet.LINE_SEPARATOR + xml);
         }
     }
 
     @Override
     public void map(Map map) {
         if (null == map) {
-            d("map 数据为空！");
+            debug("map 数据为空！");
             return;
         }
         StringBuilder stringBuilder = new StringBuilder();
@@ -120,13 +110,13 @@ public class PrinterImpl implements PrinterBiz {
             stringBuilder.append(((Map.Entry) entry).getValue());
             stringBuilder.append(PrinterSet.LINE_SEPARATOR);
         }
-        d(stringBuilder.toString());
+        debug(stringBuilder.toString());
     }
 
     @Override
     public void list(List list) {
         if (null == list) {
-            d("list 数据为空！");
+            debug("list 数据为空！");
             return;
         }
         StringBuilder stringBuilder = new StringBuilder();
@@ -135,7 +125,7 @@ public class PrinterImpl implements PrinterBiz {
             stringBuilder.append(list.get(i));
             stringBuilder.append(PrinterSet.LINE_SEPARATOR);
         }
-        d(stringBuilder.toString());
+        debug(stringBuilder.toString());
     }
 
     @Override
