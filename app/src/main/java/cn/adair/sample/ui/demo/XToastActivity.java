@@ -8,7 +8,7 @@ import android.widget.Toast;
 
 import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
-import cn.adair.xframe.utils.XOutdatedUtils;
+import cn.adair.frame.utils.OxOutdatedUtil;
 import cn.adair.xframe.widget.XToast;
 
 public class XToastActivity extends BaseActivity implements View.OnClickListener {
@@ -67,7 +67,7 @@ public class XToastActivity extends BaseActivity implements View.OnClickListener
                 XToast.info("info！！");
                 break;
             case R.id.button_normal_icon:
-                XToast.normal("success！！", XOutdatedUtils.getDrawable(R.mipmap.currerror));
+                XToast.normal("success！！", OxOutdatedUtil.getDrawable(R.mipmap.currerror));
                 break;
             case R.id.button_normal_no_icon:
                 XToast.normal("normal！！");

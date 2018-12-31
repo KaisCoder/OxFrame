@@ -1,9 +1,8 @@
-package cn.adair.frame.utils.client;
-
-import android.util.Log;
+package cn.adair.frame.utils.request;
 
 import java.util.concurrent.TimeUnit;
 
+import cn.adair.frame.utils.OxPrinter;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.CallAdapter;
@@ -16,27 +15,27 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
  * Created by Administrator on 2018/12/6/006.
  * slight negligence may lead to great disaster~
  */
-public class IClient {
+public class Request {
 
-    public static IService _CreateService() {
-        IClientSet iSet = IClientSet.Instance();
-        IClient.Builder builder = new IClient.Builder();
+    public static Service _CreateService() {
+        ClientSet iSet = ClientSet.instance();
+        Request.Builder builder = new Request.Builder();
         builder.setBaseUrl(iSet.iClientHost());
         builder.addInterceptor(iSet.iClientLog());
         builder.addInterceptor(iSet.iClientHeader());
         builder.addConverterFactory(iSet.iClientFactory());
         builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-        return builder.builder().create(IService.class);
+        return builder.builder().create(Service.class);
     }
 
-    public static IService _CreateService(IClientSet iSet) {
-        IClient.Builder builder = new IClient.Builder();
+    public static Service _CreateService(ClientSet iSet) {
+        Request.Builder builder = new Request.Builder();
         builder.setBaseUrl(iSet.iClientHost());
         builder.addInterceptor(iSet.iClientLog());
         builder.addInterceptor(iSet.iClientHeader());
         builder.addConverterFactory(iSet.iClientFactory());
         builder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
-        return builder.builder().create(IService.class);
+        return builder.builder().create(Service.class);
     }
 
     public static class Builder {
@@ -53,22 +52,22 @@ public class IClient {
         }
 
         private void addInterceptor(Interceptor interceptor) {
-            Log.e("IClient", "addInterceptor");
+            OxPrinter.info("addInterceptor");
             iOkBuilder.addInterceptor(interceptor);
         }
 
         private void addCallAdapterFactory(CallAdapter.Factory factory) {
-            Log.e("IClient", "addCallAdapterFactory");
+            OxPrinter.info("addCallAdapterFactory");
             iRetrofitBuilder.addCallAdapterFactory(factory);
         }
 
         private void addConverterFactory(Converter.Factory factory) {
-            Log.e("IClient", "addConverterFactory");
+            OxPrinter.info("addConverterFactory");
             iRetrofitBuilder.addConverterFactory(factory);
         }
 
         private Builder setBaseUrl(String baseUrl) {
-            Log.e("IClient", "setBaseUrl");
+            OxPrinter.info("setBaseUrl");
             iRetrofitBuilder.baseUrl(baseUrl);
             return this;
         }

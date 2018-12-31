@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.adair.frame.utils.client.scheduler;
+package cn.adair.frame.utils.request.scheduler;
 
 import android.os.Handler;
 import android.os.Message;

@@ -1,4 +1,4 @@
-package cn.adair.frame.utils.client;
+package cn.adair.frame.utils.request;
 
 import okhttp3.Interceptor;
 import retrofit2.Converter;
@@ -8,19 +8,19 @@ import retrofit2.Converter;
  * Created by Administrator on 2018/12/6/006.
  * slight negligence may lead to great disaster~
  */
-public class IClientSet {
+public class ClientSet {
 
-    private static IClientSet iInstance = null;
+    private static ClientSet instance = null;
 
-    public static IClientSet Instance() {
-        if (null == iInstance) {
-            synchronized (IClientSet.class) {
-                if (null == iInstance) {
-                    iInstance = new IClientSet();
+    public static ClientSet instance() {
+        if (null == instance) {
+            synchronized (ClientSet.class) {
+                if (null == instance) {
+                    instance = new ClientSet();
                 }
             }
         }
-        return iInstance;
+        return instance;
     }
 
     private String clientHost;

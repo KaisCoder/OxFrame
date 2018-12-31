@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import cn.adair.xframe.R;
 import cn.adair.xframe.XFrame;
-import cn.adair.xframe.utils.XOutdatedUtils;
+import cn.adair.frame.utils.OxOutdatedUtil;
 
 /**
  * 自定义Toast
@@ -86,7 +86,7 @@ public class XToast {
     public static Toast warning(@NonNull String message, int duration, boolean withIcon) {
         Drawable icon = null;
         if (withIcon) {
-            icon = XOutdatedUtils.getDrawable(R.drawable.xtoast_warning);
+            icon = OxOutdatedUtil.getDrawable(R.drawable.xtoast_warning);
         }
         return custom(message, icon, WARNING_COLOR, duration);
     }
@@ -102,7 +102,7 @@ public class XToast {
     public static Toast info(@NonNull String message, int duration, boolean withIcon) {
         Drawable icon = null;
         if (withIcon) {
-            icon = XOutdatedUtils.getDrawable(R.drawable.xtoast_info);
+            icon = OxOutdatedUtil.getDrawable(R.drawable.xtoast_info);
         }
         return custom(message, icon, INFO_COLOR, duration);
     }
@@ -118,7 +118,7 @@ public class XToast {
     public static Toast success(@NonNull String message, int duration, boolean withIcon) {
         Drawable icon = null;
         if (withIcon) {
-            icon = XOutdatedUtils.getDrawable(R.drawable.xtoast_success);
+            icon = OxOutdatedUtil.getDrawable(R.drawable.xtoast_success);
         }
         return custom(message, icon, SUCCESS_COLOR, duration);
     }
@@ -134,7 +134,7 @@ public class XToast {
     public static Toast error(@NonNull String message, int duration, boolean withIcon) {
         Drawable icon = null;
         if (withIcon) {
-            icon = XOutdatedUtils.getDrawable(R.drawable.xtoast_error);
+            icon = OxOutdatedUtil.getDrawable(R.drawable.xtoast_error);
         }
         return custom(message, icon, ERROR_COLOR, duration);
     }
@@ -156,7 +156,7 @@ public class XToast {
     }
 
     public static Toast custom(@NonNull String message, @DrawableRes int iconRes, @ColorInt int textColor, @ColorInt int tintColor, int duration) {
-        return custom(message, XOutdatedUtils.getDrawable(iconRes), textColor, tintColor, duration);
+        return custom(message, OxOutdatedUtil.getDrawable(iconRes), textColor, tintColor, duration);
     }
 
     /**
@@ -174,14 +174,14 @@ public class XToast {
         ImageView toastIcon = (ImageView) toastLayout.findViewById(R.id.xtoast_icon);
         TextView toastText = (TextView) toastLayout.findViewById(R.id.xtoast_text);
 
-        Drawable drawableFrame = XOutdatedUtils.getDrawable(R.drawable.xtoast_frame);
+        Drawable drawableFrame = OxOutdatedUtil.getDrawable(R.drawable.xtoast_frame);
         drawableFrame.setColorFilter(new PorterDuffColorFilter(tintColor, PorterDuff.Mode.SRC_IN));
-        XOutdatedUtils.setBackground(toastLayout, drawableFrame);
+        OxOutdatedUtil.setBackground(toastLayout, drawableFrame);
 
         if (icon == null) {
             toastIcon.setVisibility(View.GONE);
         } else {
-            XOutdatedUtils.setBackground(toastIcon, icon);
+            OxOutdatedUtil.setBackground(toastIcon, icon);
         }
 
         toastText.setTextColor(textColor);

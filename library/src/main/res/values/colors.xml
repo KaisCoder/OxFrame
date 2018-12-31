@@ -5,4 +5,7 @@
     <color name="XFrame_text_gray">#8a8a8a</color>
 
     <color name="XFrame_loading_dialog_message">#595959</color>
+
+
+    <color name="Ox_White">#FFFFFF</color>
 </resources>

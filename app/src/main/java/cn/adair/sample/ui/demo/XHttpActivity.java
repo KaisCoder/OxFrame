@@ -8,9 +8,9 @@ import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
 
-import cn.adair.frame.utils.client.IClientSet;
 import cn.adair.frame.utils.OxClient;
 import cn.adair.frame.utils.OxPrinter;
+import cn.adair.frame.utils.request.ClientSet;
 import cn.adair.sample.R;
 import cn.adair.sample.data.Weather;
 import cn.adair.sample.ui.BaseActivity;
@@ -46,7 +46,7 @@ public class XHttpActivity extends BaseActivity {
 
     public void request() {
 
-        IClientSet config = IClientSet.Instance();
+        ClientSet config = ClientSet.instance();
         config.setClientHost("http://wthrcdn.etouch.cn");
         config.setClientLog(InterceptorUtil.CreateLog());
         config.setClientHeader(InterceptorUtil.CreateHeader());

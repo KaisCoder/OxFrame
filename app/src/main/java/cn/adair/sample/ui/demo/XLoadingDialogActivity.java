@@ -6,9 +6,9 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 
-import cn.adair.sample.ui.BaseActivity;
+import cn.adair.frame.widget.OxLoading;
 import cn.adair.sample.R;
-import cn.adair.xframe.widget.XLoadingDialog;
+import cn.adair.sample.ui.BaseActivity;
 import cn.adair.xframe.widget.XToast;
 
 public class XLoadingDialogActivity extends BaseActivity {
@@ -16,7 +16,7 @@ public class XLoadingDialogActivity extends BaseActivity {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            XLoadingDialog.with(getApplicationContext()).dismiss();
+            OxLoading.with(getApplicationContext()).dismiss();
         }
     };
 
@@ -38,11 +38,11 @@ public class XLoadingDialogActivity extends BaseActivity {
     public void show(View view) {
         switch (view.getId()) {
             case R.id.loading1:
-                XLoadingDialog.with(this).show();
+                OxLoading.with(this).setProgressBarColor(R.color.colorAccent).show();
                 break;
             case R.id.loading2:
                 XToast.info("3秒后自动取消");
-                XLoadingDialog.with(this)
+                OxLoading.with(this)
                         .setBackgroundColor(Color.parseColor("#aa000000"))
                         .setMessageColor(Color.WHITE)
                         .setCanceled(false)
@@ -50,16 +50,16 @@ public class XLoadingDialogActivity extends BaseActivity {
                 handler.sendEmptyMessageDelayed(1, 3000);
                 break;
             case R.id.loading3:
-                XLoadingDialog.with(this)
-                        .setOrientation(XLoadingDialog.VERTICAL)
+                OxLoading.with(this)
+                        .setOrientation(OxLoading.VERTICAL)
                         .setMessage("加载中...")
                         .show();
                 break;
             case R.id.loading4:
                 XToast.info("3秒后自动取消");
-                XLoadingDialog.with(this)
+                OxLoading.with(this)
                         .setCanceled(false)
-                        .setOrientation(XLoadingDialog.VERTICAL)
+                        .setOrientation(OxLoading.VERTICAL)
                         .setBackgroundColor(Color.parseColor("#aa000000"))
                         .setMessageColor(Color.WHITE)
                         .setMessage("加载中...")

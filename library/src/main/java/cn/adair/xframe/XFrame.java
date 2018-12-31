@@ -11,7 +11,7 @@ import android.support.annotation.StringRes;
 import android.util.DisplayMetrics;
 
 import cn.adair.xframe.utils.XDensityUtils;
-import cn.adair.xframe.utils.XOutdatedUtils;
+import cn.adair.frame.utils.OxOutdatedUtil;
 import cn.adair.xframe.utils.http.IHttpEngine;
 import cn.adair.xframe.utils.http.XHttp;
 import cn.adair.xframe.utils.imageload.ImageLoader;
@@ -74,11 +74,11 @@ public class XFrame {
     }
 
     public static Drawable getDrawable(@DrawableRes int id) {
-        return XOutdatedUtils.getDrawable(id);
+        return OxOutdatedUtil.getDrawable(id);
     }
 
     public static int getColor(@ColorRes int id) {
-        return XOutdatedUtils.getColor(id);
+        return OxOutdatedUtil.getColor(id);
     }
 
     public static Object getSystemService(String name) {

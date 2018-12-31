@@ -1,4 +1,4 @@
-package cn.adair.frame.utils.client;
+package cn.adair.frame.utils.request;
 
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,7 +19,7 @@ import retrofit2.http.Url;
  * Created by Administrator on 2018/5/25/025.
  * slight negligence may lead to great disaster~
  */
-public interface IService {
+public interface Service {
 
     /**
      * Post 请求使用@Url 注解

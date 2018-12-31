@@ -1,4 +1,4 @@
-package cn.adair.xframe.utils;
+package cn.adair.frame.utils;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -17,9 +17,9 @@ import cn.adair.xframe.XFrame;
 /**
  * 此类主要是用来放一些系统过时方法的处理
  */
-public class XOutdatedUtils {
+public class OxOutdatedUtil {
 
-    private XOutdatedUtils() {
+    private OxOutdatedUtil() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 
@@ -30,10 +30,11 @@ public class XOutdatedUtils {
      * @param drawable
      */
     public static void setBackground(@NonNull View view, Drawable drawable) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackground(drawable);
-        else
+        } else {
             view.setBackgroundDrawable(drawable);
+        }
     }
 
     /**
@@ -53,8 +54,7 @@ public class XOutdatedUtils {
      * @param theme 指定主题
      * @return
      */
-    public static Drawable getDrawable(@DrawableRes int id,
-                                       @Nullable Resources.Theme theme) {
+    public static Drawable getDrawable(@DrawableRes int id, @Nullable Resources.Theme theme) {
         return ResourcesCompat.getDrawable(XFrame.getResources(), id, theme);
     }
 

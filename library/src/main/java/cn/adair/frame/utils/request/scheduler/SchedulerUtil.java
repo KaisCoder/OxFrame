@@ -1,4 +1,4 @@
-package cn.adair.frame.utils.client.scheduler;
+package cn.adair.frame.utils.request.scheduler;
 
 import io.reactivex.schedulers.Schedulers;
 
@@ -7,7 +7,7 @@ import io.reactivex.schedulers.Schedulers;
  * Created by Administrator on 2018/5/28/028.
  * slight negligence may lead to great disaster~
  */
-public class SchedulerUtils<T> {
+public class SchedulerUtil<T> {
 
     public IoMainScheduler<T> ioToMain() {
         return new IoMainScheduler<T>();

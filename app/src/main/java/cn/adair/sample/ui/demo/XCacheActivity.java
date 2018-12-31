@@ -10,7 +10,7 @@ import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 import cn.adair.sample.bean.News;
 import cn.adair.xframe.cache.XCache;
-import cn.adair.xframe.utils.XOutdatedUtils;
+import cn.adair.frame.utils.OxOutdatedUtil;
 
 public class XCacheActivity extends BaseActivity {
 
@@ -37,7 +37,7 @@ public class XCacheActivity extends BaseActivity {
         News news = new News(News.TYPE_SINGLE_PICTURE, "智能手机行业正处于关键转折点，下一战场会在哪里？", "https://pic.36krcnd.com/avatar/201701/17062818/1ucsedy4pdb4aqyu.jpg!heading", "缪定纯•明星公司", "58分钟前");
         xCache.put("news", news);//保存序列化对象
         xCache.put("bitmap", BitmapFactory.decodeResource(getResources(), R.mipmap.computer));
-        xCache.put("drawable", XOutdatedUtils.getDrawable(R.mipmap.computer));
+        xCache.put("drawable", OxOutdatedUtil.getDrawable(R.mipmap.computer));
         xCache.put("byte", "缓存byte".getBytes());//字节数组，使用场景很多，这里只做测试
         /**
          * 关于实体类保存，建议用json字符串保存，效果更佳，兼容性更好

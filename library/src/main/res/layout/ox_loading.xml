@@ -1,23 +1,21 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/xframe_loading_view"
+    android:id="@+id/ox_loading_view"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:padding="@dimen/XFrame_spacing"
-    android:background="@color/XFrame_white"
-    android:orientation="horizontal">
-
+    android:background="@color/Ox_White"
+    android:orientation="horizontal"
+    android:padding="20dp">
 
     <ProgressBar
-        android:id="@+id/xframe_loading_progressbar"
+        android:id="@+id/ox_loading_progressbar"
         style="@style/Widget.AppCompat.ProgressBar"
-        android:layout_width="@dimen/XFrame_progressbar_size"
-        android:layout_height="@dimen/XFrame_progressbar_size"
-        android:layout_gravity="center"/>
-
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center" />
 
     <TextView
-        android:id="@+id/xframe_loading_message"
+        android:id="@+id/ox_loading_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
