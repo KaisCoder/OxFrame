@@ -47,13 +47,13 @@ public class XHttpActivity extends BaseActivity {
     public void request() {
 
         ClientSet config = ClientSet.instance();
-        config.setClientHost("http://wthrcdn.etouch.cn");
+        config.setClientHost("https://ali-todayoil.showapi.com");
         config.setClientLog(InterceptorUtil.CreateLog());
         config.setClientHeader(InterceptorUtil.CreateHeader());
         config.setClientFactory(JsonFactory.create());
         HashMap<String, Object> map = new HashMap<>();
-        map.put("citykey", "101010100");
-        new CompositeDisposable().add(OxClient._Get("/weather_mini", map).subscribe(new Consumer<JSONObject>() {
+        map.put("prov", "");
+        new CompositeDisposable().add(OxClient._Get("/todayoil", map).subscribe(new Consumer<JSONObject>() {
             @Override
             public void accept(JSONObject jsonObject) throws Exception {
                 OxPrinter.json(jsonObject.toString());

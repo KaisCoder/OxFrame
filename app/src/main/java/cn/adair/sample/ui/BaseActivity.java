@@ -6,9 +6,9 @@ import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
+import cn.adair.frame.utils.statusbar.OxStatusBar;
 import cn.adair.sample.R;
 import cn.adair.xframe.base.XActivity;
-import cn.adair.xframe.utils.statusbar.XStatusBar;
 
 /**
  * 必须继承XActivity，你也可以每个都继承XActivity，这里进行再次封装是为了便于你维护和增加你需要的方法
@@ -35,7 +35,7 @@ public abstract class BaseActivity extends XActivity {
     }
 
     protected void setStatusBar() {
-        XStatusBar.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
+        OxStatusBar.setColor(this, getResources().getColor(R.color.colorPrimary), 0);
     }
 
     @Override

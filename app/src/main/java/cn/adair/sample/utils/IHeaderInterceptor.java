@@ -19,7 +19,8 @@ public class IHeaderInterceptor implements Interceptor {
         //  配置请求头
         Request request = chain.request().newBuilder()
 //                .header("Cookie", "JSESSIONID=" + ISPUtil.JSESSIONID())
-                .header("Requested-With", "XMLHttpRequest")
+//                .header("Requested-With", "XMLHttpRequest")
+                .header("Authorization","APPCODE 833e4394510147acba2d1feae4aa3982")
                 .build();
         return chain.proceed(request);
     }
