@@ -20,7 +20,7 @@ public class OxFrame {
             if (OxFrame.iCtx == null) {
                 throw new NullPointerException("Call OxFrame.init(context) within your Application onCreate() method.");
             }
-            return OxFrame.iCtx().getApplicationContext();
+            return OxFrame.iCtx.getApplicationContext();
         }
     }
 
