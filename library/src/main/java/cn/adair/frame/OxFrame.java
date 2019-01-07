@@ -17,7 +17,7 @@ public class OxFrame {
 
     public static Context iCtx() {
         synchronized (OxFrame.class) {
-            if (OxFrame.iCtx() == null) {
+            if (OxFrame.iCtx == null) {
                 throw new NullPointerException("Call OxFrame.init(context) within your Application onCreate() method.");
             }
             return OxFrame.iCtx().getApplicationContext();
