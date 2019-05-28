@@ -1,4 +1,4 @@
-package cn.adair.frame.utils;
+package cn.adair.xframe.widget;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import cn.adair.frame.utils.OxOutdatedUtil;
 import cn.adair.xframe.R;
 import cn.adair.xframe.XFrame;
 

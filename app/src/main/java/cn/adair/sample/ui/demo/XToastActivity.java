@@ -10,7 +10,7 @@ import cn.adair.frame.utils.OxToast;
 import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 import cn.adair.frame.utils.OxOutdatedUtil;
-import cn.adair.frame.utils.XToast;
+import cn.adair.xframe.widget.XToast;
 
 public class XToastActivity extends BaseActivity implements View.OnClickListener {
     Button error;
