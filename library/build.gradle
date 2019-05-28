@@ -6,8 +6,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 28
-        versionCode 6
-        versionName "0.0.6-beta"
+        versionCode 7
+        versionName "0.0.7-beta"
     }
     buildTypes {
         release {
@@ -22,10 +22,10 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
 
-    implementation 'io.reactivex.rxjava2:rxjava:2.2.3'
-    implementation "com.squareup.retrofit2:retrofit:2.4.0"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
+    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
 
-    implementation 'com.alibaba:fastjson:1.2.55'
+    implementation 'com.alibaba:fastjson:1.2.49'
 
 }
