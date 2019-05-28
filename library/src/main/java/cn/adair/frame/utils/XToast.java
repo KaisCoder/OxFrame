@@ -1,4 +1,4 @@
-package cn.adair.xframe.widget;
+package cn.adair.frame.utils;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import cn.adair.xframe.R;
 import cn.adair.xframe.XFrame;
-import cn.adair.frame.utils.OxOutdatedUtil;
 
 /**
  * 自定义Toast

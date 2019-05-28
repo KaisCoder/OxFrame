@@ -6,10 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import cn.adair.frame.utils.OxToast;
 import cn.adair.sample.ui.BaseActivity;
 import cn.adair.sample.R;
 import cn.adair.frame.utils.OxOutdatedUtil;
-import cn.adair.xframe.widget.XToast;
+import cn.adair.frame.utils.XToast;
 
 public class XToastActivity extends BaseActivity implements View.OnClickListener {
     Button error;
@@ -55,7 +56,8 @@ public class XToastActivity extends BaseActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_error_toast:
-                XToast.error("xloading_error！！");
+                OxToast.showLong("Toast is Show");
+//                XToast.error("xloading_error！！");
                 break;
             case R.id.button_success_toast:
                 XToast.success("success！！");

@@ -9,7 +9,7 @@ import android.view.View;
 import cn.adair.frame.widget.OxLoading;
 import cn.adair.sample.R;
 import cn.adair.sample.ui.BaseActivity;
-import cn.adair.xframe.widget.XToast;
+import cn.adair.frame.utils.XToast;
 
 public class XLoadingDialogActivity extends BaseActivity {
     private Handler handler = new Handler() {

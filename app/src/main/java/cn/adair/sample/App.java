@@ -8,14 +8,13 @@ import cn.adair.xframe.XFrame;
 import cn.adair.xframe.base.XApplication;
 
 public class App extends XApplication {
+
     @Override
     public void onCreate() {
         super.onCreate();
         CustomActivityOnCrash.install(this);
-
         OxFrame.init(this);
         OxFrame.initPrinter("OxRun", true, false);
-
 
 
         //初始化多状态界面View

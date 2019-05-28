@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.adair.frame.utils.request.scheduler;
+package cn.adair.frame.utils.http.scheduler;
 
 import java.util.concurrent.Callable;
 

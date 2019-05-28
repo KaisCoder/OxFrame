@@ -1,4 +1,4 @@
-package cn.adair.frame.utils.request;
+package cn.adair.frame.utils.http.service;
 
 
 import com.alibaba.fastjson.JSONObject;
@@ -19,22 +19,29 @@ import retrofit2.http.Url;
  * Created by Administrator on 2018/5/25/025.
  * slight negligence may lead to great disaster~
  */
-public interface Service {
+public interface OxService {
 
-    /**
-     * Post 请求使用@Url 注解
-     */
     @GET
-    Observable<JSONObject> _Get(@Url String _Uri, @QueryMap HashMap<String, Object> _Params);
+    Observable<String> _Get(@Url String _Uri, @QueryMap HashMap<String, Object> _Params);
+
+    @POST
+    Observable<String> _Post(@Url String _Uri, @QueryMap HashMap<String, Object> _Params);
 
     /**
      * Post 请求使用@Url 注解
      */
-    @POST
-    Observable<JSONObject> _Post(@Url String _Uri, @QueryMap HashMap<String, Object> _Params);
+//    @GET
+//    Observable<JSONObject> _Get(@Url String _Uri, @QueryMap HashMap<String, Object> _Params);
+
+    /**
+     * Post 请求使用@Url 注解
+     */
+//    @POST
+//    Observable<JSONObject> _Post(@Url String _Uri, @QueryMap HashMap<String, Object> _Params);
 
     /**
      * Upload 图片上传使用
+     *
      * @Body @Part 不能同时使用
      * @Body parameters cannot be used with form or multi-part encoding.
      */

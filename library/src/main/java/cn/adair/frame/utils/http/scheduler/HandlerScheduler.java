@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package cn.adair.frame.utils.request.scheduler;
+package cn.adair.frame.utils.http.scheduler;
 
 import android.os.Handler;
 import android.os.Message;
@@ -24,6 +24,7 @@ import io.reactivex.disposables.Disposables;
 import io.reactivex.plugins.RxJavaPlugins;
 
 final class HandlerScheduler extends Scheduler {
+
     private final Handler handler;
 
     HandlerScheduler(Handler handler) {

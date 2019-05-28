@@ -4,22 +4,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSONObject;
-
-import java.util.HashMap;
-
-import cn.adair.frame.utils.OxClient;
-import cn.adair.frame.utils.OxPrinter;
-import cn.adair.frame.utils.request.ClientSet;
 import cn.adair.sample.R;
 import cn.adair.sample.data.Weather;
 import cn.adair.sample.ui.BaseActivity;
-import cn.adair.sample.utils.InterceptorUtil;
-import cn.adair.sample.utils.JsonFactory;
 import cn.adair.xframe.utils.http.HttpCallBack;
 import cn.adair.xframe.utils.http.XHttp;
-import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.functions.Consumer;
 
 public class XHttpActivity extends BaseActivity {
 
@@ -46,19 +35,19 @@ public class XHttpActivity extends BaseActivity {
 
     public void request() {
 
-        ClientSet config = ClientSet.instance();
-        config.setClientHost("https://ali-todayoil.showapi.com");
-        config.setClientLog(InterceptorUtil.CreateLog());
-        config.setClientHeader(InterceptorUtil.CreateHeader());
-        config.setClientFactory(JsonFactory.create());
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("prov", "");
-        new CompositeDisposable().add(OxClient._Get("/todayoil", map).subscribe(new Consumer<JSONObject>() {
-            @Override
-            public void accept(JSONObject jsonObject) throws Exception {
-                OxPrinter.json(jsonObject.toString());
-            }
-        }));
+//        ClientSet config = ClientSet.instance();
+//        config.setClientHost("https://ali-todayoil.showapi.com");
+//        config.setClientLog(InterceptorUtil.CreateLog());
+//        config.setClientHeader(InterceptorUtil.CreateHeader());
+//        config.setClientFactory(JsonFactory.create());
+//        HashMap<String, Object> map = new HashMap<>();
+//        map.put("prov", "");
+//        new CompositeDisposable().add(OxClient._Get("/todayoil", map).subscribe(new Consumer<JSONObject>() {
+//            @Override
+//            public void accept(JSONObject jsonObject) throws Exception {
+//                OxPrinter.json(jsonObject.toString());
+//            }
+//        }));
 
 //       XRequest._Post(XClientConfig.Instance(), "", new HashMap<String, Object>()).subscribe(new io.reactivex.functions.Consumer<JSONObject>() {
 //       })
