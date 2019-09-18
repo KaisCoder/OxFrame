@@ -13,8 +13,8 @@ public abstract class OxBaseFragment extends Fragment implements OxBaseCallback 
 
     public View _mView;
     protected Context _mContext;
-    protected FragmentActivity _mActivity;
     private Bundle _mSavedInstanceState;
+    protected FragmentActivity _mActivity;
 
     /**
      * 视图是否加载完毕
