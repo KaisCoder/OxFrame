@@ -1,6 +1,6 @@
 package cn.adair.sample.utils;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;

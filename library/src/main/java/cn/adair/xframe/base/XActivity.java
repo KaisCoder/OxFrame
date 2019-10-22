@@ -1,8 +1,8 @@
 package cn.adair.xframe.base;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import cn.adair.xframe.common.XActivityStack;
 import cn.adair.xframe.utils.permission.XPermission;

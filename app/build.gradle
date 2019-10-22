@@ -1,10 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
+
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
     }
@@ -18,20 +19,20 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support:design:28.0.0'
-    implementation 'com.github.bumptech.glide:glide:3.7.0'
-    implementation 'cat.ereza:customactivityoncrash:1.5.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    implementation 'cat.ereza:customactivityoncrash:2.2.0'
 
     //网络框架，目前就列举这四种常用的
     implementation 'com.mcxiaoke.volley:library:1.0.19'
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.2'
     implementation 'com.loopj.android:android-async-http:1.4.9'
 
-    implementation 'com.alibaba:fastjson:1.2.49'
+    implementation 'com.alibaba:fastjson:1.2.62'
 
-    implementation "io.reactivex.rxjava2:rxjava:2.1.14"
-    implementation "com.squareup.retrofit2:retrofit:2.3.0"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.3"
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
 
     implementation project(':library')
 }

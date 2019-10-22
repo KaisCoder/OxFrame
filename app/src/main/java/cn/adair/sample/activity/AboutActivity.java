@@ -1,7 +1,7 @@
 package cn.adair.sample.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import androidx.appcompat.app.ActionBar;
 
 import cn.adair.sample.BaseActivity;
 import cn.adair.sample.R;

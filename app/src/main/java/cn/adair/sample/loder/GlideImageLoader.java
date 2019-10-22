@@ -18,14 +18,13 @@ public class GlideImageLoader implements ImageLoader {
 
     public GlideImageLoader(Context context) {
         this.mContext = context;
-        circleTransform = new GlideCircleTransform(mContext);
+        circleTransform = new GlideCircleTransform();
     }
 
     @Override
     public void load(ImageView imageView, Object imageUrl) {
         Glide.with(mContext)
                 .load(imageUrl)
-                .crossFade()
                 .into(imageView);
     }
 
@@ -33,7 +32,6 @@ public class GlideImageLoader implements ImageLoader {
     public void load(ImageView imageView, Object imageUrl, int defaultImage) {
         Glide.with(mContext)
                 .load(imageUrl)
-                .crossFade()
                 .placeholder(defaultImage)
                 .into(imageView);
     }
@@ -42,7 +40,6 @@ public class GlideImageLoader implements ImageLoader {
     public void load(ImageView imageView, Object imageUrl, Object transformation) {
         Glide.with(mContext)
                 .load(imageUrl)
-                .crossFade()
                 .transform((BitmapTransformation) transformation)
                 .into(imageView);
     }

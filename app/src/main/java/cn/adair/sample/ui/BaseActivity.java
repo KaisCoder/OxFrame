@@ -2,9 +2,10 @@ package cn.adair.sample.ui;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.ActionBar;
 
 import cn.adair.frame.utils.statusbar.OxStatusBar;
 import cn.adair.sample.R;

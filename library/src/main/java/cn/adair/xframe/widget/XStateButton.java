@@ -6,11 +6,12 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
-import android.support.annotation.ColorInt;
-import android.support.annotation.FloatRange;
-import android.support.annotation.IntRange;
-import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
+import androidx.appcompat.widget.AppCompatTextView;
 
 import cn.adair.xframe.R;
 
@@ -111,7 +112,7 @@ public class XStateButton extends AppCompatTextView {
     }
 
     public XStateButton(Context context, AttributeSet attrs) {
-        this(context, attrs, android.support.v7.appcompat.R.attr.buttonStyle);
+        this(context, attrs, R.attr.buttonStyle);
     }
 
     public XStateButton(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -124,7 +125,7 @@ public class XStateButton extends AppCompatTextView {
         states = new int[4][];
 
         Drawable drawable = getBackground();
-        if (drawable != null && drawable instanceof StateListDrawable) {
+        if (drawable instanceof StateListDrawable) {
             mStateBackground = (StateListDrawable) drawable;
         } else {
             mStateBackground = new StateListDrawable();

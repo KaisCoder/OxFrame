@@ -6,13 +6,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import cn.adair.frame.utils.OxToast;
-import cn.adair.sample.ui.BaseActivity;
-import cn.adair.sample.R;
 import cn.adair.frame.utils.OxOutdatedUtil;
+import cn.adair.frame.utils.OxToast;
+import cn.adair.sample.R;
+import cn.adair.sample.ui.BaseActivity;
 import cn.adair.xframe.widget.XToast;
 
 public class XToastActivity extends BaseActivity implements View.OnClickListener {
+
     Button error;
     Button success;
     Button info;

@@ -36,6 +36,7 @@
         <activity android:name=".ui.demo.XLoadingViewActivity2" />
         <activity android:name=".ui.demo.XCacheActivity" />
         <activity android:name=".ui.demo.XHttpActivity" />
+        <activity android:name=".ui.demo.XFragmentActivity" />
     </application>
 
 </manifest>

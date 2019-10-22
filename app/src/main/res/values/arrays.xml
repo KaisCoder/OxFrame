@@ -22,5 +22,6 @@
         <item>XLoadingView 页面多状态布局</item>
         <item>XCache 缓存用法</item>
         <item>OxClient 网络隔离框架使用</item>
+        <item>Androidx Fragment 懒加载</item>
     </array>
 </resources>

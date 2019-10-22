@@ -1,7 +1,7 @@
 package cn.adair.xframe.widget.loadingview;
 
 
-import android.support.annotation.LayoutRes;
+import androidx.annotation.LayoutRes;
 
 import cn.adair.xframe.R;
 

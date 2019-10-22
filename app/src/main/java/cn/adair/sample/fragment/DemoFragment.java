@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import cn.adair.frame.base.OxBaseFragment;
 import cn.adair.sample.R;
 import cn.adair.sample.ui.demo.XCacheActivity;
+import cn.adair.sample.ui.demo.XFragmentActivity;
 import cn.adair.sample.ui.demo.XHttpActivity;
 import cn.adair.sample.ui.demo.XLoadingDialogActivity;
 import cn.adair.sample.ui.demo.XLoadingViewActivity;
@@ -67,6 +68,8 @@ public class DemoFragment extends OxBaseFragment {
                     break;
                 case 7:
                     intent.setClass(_mContext, XHttpActivity.class);
+                case 8:
+                    intent.setClass(_mContext, XFragmentActivity.class);
             }
             intent.putExtra("title", demo[position]);
             startActivity(intent);
